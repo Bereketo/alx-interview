@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """sloves the lockboxes problem:
         determines if all boxes can be unlocked
         A key with the same number as a box opens it & box[0] is unlocked
@@ -21,6 +21,4 @@ def canUnlockAll(boxes):
             if key < n and key not in unlockedBoxes:
                 unlockedBoxes.add(key)
                 boxesToTry.add(key)
-    if(n == len(unlockedBoxes)):
-        return True
-    return False
+    return n == len(unlockedBoxes)
