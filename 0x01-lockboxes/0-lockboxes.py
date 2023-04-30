@@ -21,4 +21,6 @@ def canUnlockAll(boxes):
             if key < n and key not in unlockedBoxes:
                 unlockedBoxes.add(key)
                 boxesToTry.add(key)
-    return n == len(unlockedBoxes)
+    if(n == len(unlockedBoxes)):
+        return True
+    return False
