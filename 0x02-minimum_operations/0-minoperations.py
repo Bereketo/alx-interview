@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Minumum Operations """
+"""Minumum Operations
+"""
 
 
 def minOperations(n):
@@ -9,14 +10,12 @@ def minOperations(n):
             operation: int -> minimum operation
                         to get a character repeated n times
     """
-    if n <= 1:
-        return 0
 
     txt = ['H']
     cpAmount = 1
     op = 0
 
-    while len(txt) < n:
+    while len(txt) < n and n > 1:
         if len(txt) == 1:
             op += 2
             txt.extend(txt)
