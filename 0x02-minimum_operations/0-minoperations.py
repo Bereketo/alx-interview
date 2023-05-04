@@ -24,6 +24,6 @@ def minOperations(n):
             op += 1
             for i in range(cpAmount):
                 txt.append(txt[i])
-    if len(txt) > n:
+    if n <= 0:
         return 0
     return op
