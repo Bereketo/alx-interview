@@ -9,9 +9,13 @@ def minOperations(n):
             operation: int -> minimum operation
                         to get a character repeated n times
     """
+    if n <= 1:
+        return 0
+
     txt = ['H']
     cpAmount = 1
     op = 0
+
     while len(txt) < n:
         if len(txt) == 1:
             op += 2
@@ -24,6 +28,5 @@ def minOperations(n):
             op += 1
             for i in range(cpAmount):
                 txt.append(txt[i])
-    if n <= 0:
-        return 0
+
     return op
