@@ -4,8 +4,6 @@
 
 
 def validUTF8(data):
-    """a method to determine if a data is utf-8 valid
-    """
     remaining_bytes = 0
 
     for byte in data:
