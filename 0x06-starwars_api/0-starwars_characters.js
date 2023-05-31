@@ -1,21 +1,34 @@
 #!/usr/bin/node
 
-import axios from 'axios';
+const request = require('request');
 
 const args = process.argv.slice(2);
 
 const url = `https://swapi-api.alx-tools.com/api/films/${args[0]}`;
 async function characters (url) {
   try {
-    const response = await axios.get(url);
-    const chars = response.data.characters;
+    request.get(url, (error, response, body) => {
+      if (error) {
+        console.error(error);
+      } else {
+        const chars = JSON.parse(body).characters;
 
-    let i = 0;
-    while (i < chars.length) {
-      const res = await axios.get(chars[i]);
-      console.log(res.data.name);
-      i++;
-    }
+        const i = 0;
+        const fetchCharacter = (index) => {
+          if (index >= chars.length) return;
+          request.get(chars[index], (err, res, character) => {
+            if (err) {
+              console.error(err);
+            } else {
+              console.log(JSON.parse(character).name);
+              fetchCharacter(index + 1);
+            }
+          });
+        };
+
+        fetchCharacter(i);
+      }
+    });
   } catch (error) {
     console.error(error);
   }
