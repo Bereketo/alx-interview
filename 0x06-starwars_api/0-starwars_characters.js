@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const axios = require('axios');
+import axios from 'axios';
 
 const args = process.argv.slice(2);
 
