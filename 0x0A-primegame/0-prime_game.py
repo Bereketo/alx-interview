@@ -1,39 +1,34 @@
 #!/usr/bin/python3
+"""0-prime_game.py """
 
 
 def isWinner(x, nums):
-    # Function to check if a number is prime
-    def isPrime(num):
-        if num < 2:
-            return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
-
-    def determineWinner(num):
-        if num == 1:
-            return "Ben"
-        elif num % 2 == 0:
-            return "Maria"
-        else:
-            return "Ben"
-
-    mariaWins = 0
-    benWins = 0
-
-    # Determine the winner for each round
-    for num in nums:
-        winner = determineWinner(num)
-        if winner == "Maria":
-            mariaWins += 1
-        elif winner == "Ben":
-            benWins += 1
-
-    # Determine the overall winner
-    if mariaWins > benWins:
-        return "Maria"
-    elif benWins > mariaWins:
-        return "Ben"
-    else:
+    """Solves Prime Game"""
+    if not nums or x < 1:
         return None
+    n = max(nums)
+    sieve = [True for _ in range(max(n + 1, 2))]
+    for i in range(2, int(pow(n, 0.5)) + 1):
+        if not sieve[i]:
+            continue
+        for j in range(i*i, n + 1, i):
+            sieve[j] = False
+
+    sieve[0] = sieve[1] = False
+    c = 0
+    for i in range(len(sieve)):
+        if sieve[i]:
+            c += 1
+        sieve[i] = c
+
+    winner = ''
+    player1 = 0
+    for n in nums:
+        player1 += sieve[n] % 2 == 1
+    if player1 * 2 == len(nums):
+        winner = None
+    if player1 * 2 > len(nums):
+        winner = "Maria"
+    else:
+        winner = "Ben"
+    return winner
