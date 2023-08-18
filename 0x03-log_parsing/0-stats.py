@@ -28,7 +28,7 @@ def print_metrics():
 line_count = 0
 for line in sys.stdin:
     try:
-        ip, _, date, request, status, size = line.split(" ", 5)
+        ip, _, date, request, status, size = line.split(" ")
         method, path, protocol = request.split(" ")
         size = int(size)
         status = int(status)

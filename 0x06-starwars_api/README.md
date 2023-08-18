@@ -16,7 +16,7 @@ $ sudo npm install semistandard --global
  ```
 </pre>
 
-# Install <span style="color: red">request</span> module and use it
+# Install <span style="color: red"> request </span> module and use it
 <pre> 
 ```
 $ sudo npm install request --global

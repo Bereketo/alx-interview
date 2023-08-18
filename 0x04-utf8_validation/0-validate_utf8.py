@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Check UTF-8 valid
+"""Checks if data is UTF-8 valid
 """
 
 
