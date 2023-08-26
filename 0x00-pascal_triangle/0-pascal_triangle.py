@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""solves pascals triangle problem """
+
+
 def pascal_triangle(n):
     if n <= 0:
         return []
